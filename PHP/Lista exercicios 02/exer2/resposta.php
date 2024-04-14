@@ -1,54 +1,23 @@
 <?php
-    //Comentário
-    #Comentário
-    /*Comentário
-        csoidjfods
-    */
-    //$nome = $_POST['nome'];
-    //echo 'Seja bem vindo '.$nome;
-    $valor1 = $_POST['valor1'];
-    $valor2 = $_POST['valor2'];
-    $soma = $valor1 + $valor2;
-    $sub = $valor1 - $valor2;
-    $mult = $valor1 * $valor2;
-    $div = $valor1 /  $valor2;
-    echo "<p>Soma: $soma</p>";
-    echo "<p>Subtração: $sub</p>";
-    if ($soma > 0){
-        echo "Soma maior que zero!";
-    } elseif ($soma < 0){
-        echo "Soma menor que zero!";
-    } else {
-        echo "Soma igual a zero!";
-    }
-    switch ($soma){
-        case 0:
-            echo "Igual a zero!";
-            break;
-        case 1:
-            echo "Igual a um!";
-            break;
-        default:
-            echo "Outra opção!";
-            break;
-    }
-    if ($sub == 0)
-        echo "Igual a zero!";
-    else 
-        echo "Diferente de 0";
-    
-    echo $sub == 0 ? "Igual a zero!" : "Diferente de 0";
+    $valor1 = floatval($_POST['valor1']);
+    $valor2 = floatval($_POST['valor2']);
+    $valor3 = floatval($_POST['valor3']);
+    $valor4 = floatval($_POST['valor4']);
+    $valor5 = floatval($_POST['valor5']);
+    $valor6 = floatval($_POST['valor6']);
+    $valor7 = floatval($_POST['valor7']);
 
-    if (($soma == 0) && ($sub == 0) || (!$mult)){
-        echo "Exibindo mensagem!";
+    $numeros = [$valor1, $valor2, $valor3, $valor4, $valor5, $valor6, $valor7];
+
+    $menorValor = $numeros[0];
+    $posicaoMenor = 0;
+
+    for ($i = 1; $i < count($numeros); $i++) {
+        if ($numeros[$i] < $menorValor) {
+            $menorValor = $numeros[$i];
+            $posicaoMenor = $i;
+        }
     }
 
-    $i=0;
-    while($i<10){
-        echo $i;
-        $i++;
-    }
-
-    for($i=0;$i<10;$i++){
-        echo $i;
-    }
+    echo "<p>O menor valor é: " . $menorValor . "</p>";
+    echo "<p>A posição do menor valor é: " . ($posicaoMenor + 1) . "</p>";
